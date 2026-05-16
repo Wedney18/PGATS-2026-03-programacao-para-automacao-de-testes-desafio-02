@@ -1,7 +1,8 @@
 export default class ServicoDePagamentoBancario {
 
+  #pagamentos
   constructor() {
-    this.pagamentos = [];
+    this.#pagamentos = [];
   }
 
   pagar(codigoBarras, empresa, valor) {
@@ -21,16 +22,16 @@ export default class ServicoDePagamentoBancario {
       categoria: categoria
     };
 
-    this.pagamentos.push(pagamento);
+    this.#pagamentos.push(pagamento);
     return 'Pagamento realizado com sucesso.';
   }
 
   consultarUltimoPagamento() {
 
-    if (this.pagamentos.length === 0) {
+    if (this.#pagamentos.length === 0) {
       return 'Nenhum pagamento efetuado.';
     }
 
-    return this.pagamentos[this.pagamentos.length - 1];
+    return this.#pagamentos[this.#pagamentos.length - 1];
   }
 }
